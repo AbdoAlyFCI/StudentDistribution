@@ -1,0 +1,52 @@
+﻿@model CurrentUser
+@{
+    ViewData["Title"] = "Fianl Selection";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Student Department Selection -</h1>
+    </div>
+</section> 
+
+<div class="container">
+    <div>
+        <table class="table table-striped mytabel">
+            <tr>
+                    <td><b>ID</b></td>
+                    <td>@Model.ID</td>
+                    <td><b>Name</b></td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td><b>GPA</b></td>
+                    <td>@Model.GPA</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            
+           
+                <tr>
+                    <td><b>Student selection</b></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1-@Model.DepartmentSelection[0]</td>
+                    <td>2-@Model.DepartmentSelection[1]</td>
+                    <td>3-@Model.DepartmentSelection[2]</td>
+                    <td>4-@Model.DepartmentSelection[3]</td>
+                </tr>
+            
+         
+                <tr>
+                    <td><b>Final Selction</b></td>
+                    <td>@Model.FinalSelection</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+        </table>
+    </div>
+</div>
+

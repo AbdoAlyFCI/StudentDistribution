@@ -1,0 +1,105 @@
+﻿@model AllInfo
+
+
+
+@{
+    ViewData["Title"] = "Manual Register";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Manual Register -</h1>
+    </div>
+</section>
+<section>
+    <div class="container col-7 offset-4 ml-auto" style="margin-top:40px">
+        <div class="card-header text-white bg-primary">
+            <strong>Register new <b>student</b></strong>
+        </div>
+        <div class="card-body">
+            <form asp-action="ManualRegister" method="post">
+                <div asp-validation-summary="All"></div>
+                @if (ViewBag.IdTarget != null)
+                {
+                    <ul>
+                        <li>@ViewBag.IdTarget</li>
+                    </ul>
+
+                    ViewBag.IdTarget = null;
+                }
+               
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-lg-1">ID*</label>
+                        <div class="col-lg-2">
+                            <input class="form-control Mcontrol" asp-for="newStudnet.Id" />
+                        </div>
+                        <div class="col-lg-4"></div>
+                        <label class="col-lg-1 ">Name*</label>
+                        <div class="col-lg-2">
+                            <input class="form-control Mcontrol" asp-for="newStudnet.Name" />
+                        </div>
+
+                    </div><br />
+                    <div class="row">
+                        <label class="col-lg-1">Password</label>
+                        <div class="col-lg-2">
+                            <input class="form-control Mcontrol" type="password" asp-for="newStudnet.Pass" />
+                        </div>
+                        <div class="col-lg-4"></div>
+                        <label class="col-lg-1 labelSpecial">Confirm Password*</label>
+                        <div class="col-lg-2">
+                            <input class="form-control Mcontrol" type="password" asp-for="newStudnet.RepeatPass" />
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-1">Gpa</label>
+                        <div class="col-lg-2">
+                            <input class="form-control Mcontrol" asp-for="newStudnet.StudentGPA" />
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <input type="submit" class="btn btn-outline-primary float-right" value="ADD" />
+            </form>
+        </div>
+    </div>
+</section>
+<br /><br />
+
+@if (ViewBag.inserted == true)
+{
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>GPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (NewStudentInsert s in Model.Studentslist)
+            {
+                <tr>
+                    <td>@s.Id</td>
+                    <td>@s.Name</td>
+                    <td>@s.StudentGPA</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+    
+
+}
+
+
+
+

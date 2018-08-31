@@ -1,0 +1,62 @@
+﻿@model AdminInsertSetting
+@{
+    ViewData["Title"] = "AddAdmin";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>Add new Admin</h1>
+    </div>
+</section>
+
+<section class="grating text-center">
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped col-lg-4">
+                <tr>
+                    <th>Admin ID</th>
+                    <th>Admin name</th>
+                </tr>
+                @foreach (InfoTable item in Model.AdminList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                    </tr>
+                }
+            </table>
+            <div class="col-lg-2"></div>
+            <div class=" col-lg-5">
+                <button class="btn btn-primary">Add new Department</button>
+                <form asp-action="AddAdmin" method="post">
+                    <br />
+                    <table>
+                        <tr>
+                            <th>Admin ID</th>
+                            <td><input asp-for="Admin.ID" class="form-control inputnewadmin"  type="text"  /></td>
+                        </tr>
+                        <tr>
+                            <th>Admin Name</th>
+                            <td><input asp-for="Admin.Name" class="form-control inputnewadmin" type="text"  /></td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td><input asp-for="Admin.Password" class="form-control inputnewadmin" type="password"  /></td>
+                        </tr>
+                        <tr>
+                            <th>Password Again </th>
+                            <td><input asp-for="Admin.RePassword" class="form-contro inputnewadmin" type="password"  /></td>
+                        </tr>
+                        <tr>
+                            <td><div asp-validation-summary="All" id="val"></div></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>                    
+                    <button class="btn btn-success">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

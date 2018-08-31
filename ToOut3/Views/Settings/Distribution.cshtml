@@ -1,0 +1,79 @@
+﻿@model DistributionModel
+
+@{
+    ViewData["Title"] = "Student Distribution";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Student's Distribution -</h1>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div>
+            <p class="d-inline DistributionPar">Number of Register Student</p>&nbsp &nbsp &nbsp<p class="d-inline DistributionPar">@Model.StudentRegistered</p><p class="d-inline DistributionPar">/</p><p class="d-inline DistributionPar">@Model.StudentNum</p>
+        </div>
+    </div>
+</section>
+<hr />
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form method="post" asp-action="Distribution">
+                    <table class="myDtabel">
+                        @for (int i = 0; i < Model.Department.Count(); i++)
+                        {
+
+                            <tr>
+                                <th>@Model.Department[i].Name</th>
+                                <td><input class="form-control count" onchange="onchage()" type="text" asp-for=@Model.Department[i].number value=@Model.Department[i].number /></td>
+                                @if (i == 0)
+                                {
+                                    <td rowspan=@Model.Department.Count()><b id="total"></b><b>/@Model.StudentNum</b></td>
+                                }
+                            </tr>
+
+                        }
+                    </table>
+                    <br />
+                    <button class="btn btn-primary Dbtn" id="bs" type="submit">Start Distribution</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<script>
+    var numofFields = document.getElementsByClassName("count");
+    var num = 0;
+    for (var i = 0; i < numofFields.length; i++) {
+        num += parseInt(numofFields[i].value);
+    }
+    document.getElementById("total").innerHTML = num.toString();
+
+    function onchage() {
+
+            var num = 0;
+    for (var i = 0; i < numofFields.length; i++) {
+        num += parseInt(numofFields[i].value);
+        }
+        if (num !=@Model.StudentNum) {
+            document.getElementById("total").style.color = "red";
+            document.getElementById("bs").disabled = true;
+
+        }
+        else {
+            document.getElementById("total").style.color = "#212529";
+            document.getElementById("bs").disabled = false;
+
+        }
+    document.getElementById("total").innerHTML = num.toString();
+    }
+
+</script>
+

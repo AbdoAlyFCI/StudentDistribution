@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NewStudentInsert>
+@{
+    ViewData["Title"] = "View";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- View Students Data -</h1>
+    </div>
+</section>
+<br /><br />
+<section>
+    <div class="container">
+        <form asp-action="view" asp-controller="Manage"  method="get">
+            <input   type="text" placeholder="search.." name="searchString" />
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+</section>
+<br /><br />
+      <section>
+          <div class="container">
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>GPA</th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @foreach (NewStudentInsert s in Model)
+                      {
+                          <tr>
+                              <td>@s.Id</td>
+                              <td>@s.Name</td>
+                              <td>@s.StudentGPA</td>
+                              
+                              <td><a asp-route-id="@s.Id" asp-action="Update" asp-controller="data">View</a></td>
+                          </tr>
+
+                      }
+                  </tbody>
+              </table>
+          </div>
+      </section>

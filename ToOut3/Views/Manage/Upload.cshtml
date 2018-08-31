@@ -1,0 +1,55 @@
+﻿@model IEnumerable<NewStudentInsert>
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Upload new Data -</h1>
+    </div>
+</section>
+<section class="text-center">
+    <form method="post" asp-controller="Manage" asp-action="Upload" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" />
+        <input type="submit" />
+
+    </form>
+</section>
+<br /><br />
+@if (ViewBag.inserted == true)
+{
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>GPA</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (NewStudentInsert s in Model)
+            {
+                <tr>
+                    <td>@s.Id</td>
+                    <td>@s.Name</td>
+                    <td>@s.StudentGPA</td>
+                    @if(s.ADD==true)
+                    {
+                        <td><i class="fas fa-check-circle" style="color:lawngreen"></i></td>
+
+                    }
+                    else
+                    {
+                        <td><i class="fas fa-times-circle" style="color:red"></i></td>
+
+                    }
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+}

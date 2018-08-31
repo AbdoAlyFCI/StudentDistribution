@@ -1,0 +1,183 @@
+﻿@model StuSelect
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Student Department Selection -</h1>
+    </div>
+</section>
+<br />
+<br />
+<br />
+<section>
+
+    @if (Model.ChangeUpdate == false)
+    {
+        <div class="container">
+            <form asp-action="StudentSelect" method="post">
+                <table class="table table-striped mytabel">
+                    <tr>
+                        <td><b>ID</b></td>
+                        <td>@Model.user.ID</td>
+                        <td><b>Name</b></td>
+                        <td>@Model.user.Name</td>
+                        <td><b>GPA</b></td>
+                        <td>@Model.user.GPA</td>
+                    </tr>
+                    <tr>
+                        <td><b>Student selection</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+             
+
+                    <tr>
+                        <td>
+                            1-
+                            <select asp-for="@Model.Selection.Department1">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                    <option value=@department.Did>@department.Dname</option>
+                                }
+
+                            </select>
+                        </td>
+                        <td>
+                            2-
+                            <select asp-for="@Model.Selection.Department2">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                    <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            3-
+                            <select asp-for="@Model.Selection.Department3">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            4-
+                            <select asp-for="@Model.Selection.Department4">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr></tr>
+
+                </table>
+
+                <input type="submit" class="btn btn-primary float-right" value="Submit" />
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <form asp-action="StudentSelectChange" method="post">
+                <table class="table table-striped mytabel">
+                    <tr>
+                        <td><b>ID</b></td>
+                        <td>@Model.user.ID</td>
+                        <td><b>Name</b></td>
+                        <td>@Model.user.Name</td>
+                        
+                    </tr>
+                    <tr>
+                        <td><b>GPA</b></td>
+                        <td>@Model.user.GPA</td>
+                    </tr>
+                    <tr>
+                        <td><b>Student selection</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="select">
+                        <td>1-@Model.user.DepartmentSelection[0]</td>
+                        <td>2-@Model.user.DepartmentSelection[1]</td>
+                        <td>3-@Model.user.DepartmentSelection[2]</td>
+                        <td>4-@Model.user.DepartmentSelection[3]</td>
+                    </tr>
+
+
+                    <tr class="update" style="display:none">
+                        <td>
+                            1-
+                            <select asp-for="@Model.Selection.Department1">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            2-
+                            <select asp-for="@Model.Selection.Department2">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            3-
+                            <select asp-for="@Model.Selection.Department3">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            4-
+                            <select asp-for="@Model.Selection.Department4">
+                                <option value=""></option>
+                                @foreach (var department in Model.Department)
+                                {
+                                <option value="@department.Did">@department.Dname</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr></tr>
+
+                </table>
+
+
+
+
+                <input type="submit" class="btn btn-primary float-right update" style="display:none" value="Submit" />
+
+            </form>
+            <button class="btn btn-primary float-right select" onclick="apper()">change</button>
+            <button class="btn btn-primary float-right update" style="display:none" onclick="diapper()">Cancel</button>
+        </div>
+
+    }
+
+</section>
+
+<script>
+
+</script>
+

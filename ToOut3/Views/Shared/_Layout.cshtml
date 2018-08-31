@@ -1,0 +1,75 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <script src="~/Content/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/Bootstrap/js/bootstrap.js"></script>
+    
+    <link href="~/Content/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    @*<link href="~/Content/fontawesome/css/fontawesome.css"   />*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+       <link href="~/Content/Css/MyStyle.css" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-primary fixed-top">
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home">Student Selection</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="Index" asp-controller="Home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="Manage">Manage</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="Settings">Settings</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="Analytics">Analytics</a>
+                    </li>
+
+                }
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                @if (User.Identity.IsAuthenticated == true)
+                {
+
+                    <a class="btn btn-secondary btn-info" asp-controller="User" asp-action="LogOut">Log Out</a>
+                }
+                else
+                {
+                    <a class="btn btn-success" asp-controller="User" asp-action="LogIn">Log In</a>
+
+                }
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+    <section>
+        <div class="container">
+            <div class="footer">
+                <p>&copy; 2018 </p>
+            </div>
+        </div>
+    </section>
+    <script src="~/Content/javascript/MyScript.js"></script>
+
+</body>
+</html>

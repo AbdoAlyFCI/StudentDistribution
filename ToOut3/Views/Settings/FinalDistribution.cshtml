@@ -1,0 +1,51 @@
+﻿@model List<FinalModel>
+@{
+    ViewData["Title"] = "Final Distribution";
+}
+
+
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Final Distribution -</h1>
+    </div>
+</section>
+
+@for (int i = 0; i < Model.Count; i++)
+{
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <h2 id="header">@Model[i].Department</h2>
+            </div>
+            <div class="col-1">
+                <button id="PrintButton" onmousedown="PrintTable('@Model[i].Department')"><i class="fas fa-print"></i></button>
+            </div>
+            <div class="col-12">
+                <table id='@Model[i].Department' class="table table-active">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>GPA</th>
+                    </tr>
+                    @foreach (var item in Model[i].AllStudent)
+                    {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Name</td>
+                        <td>@item.GPA</td>
+                    </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+}
+
+
+
+
+

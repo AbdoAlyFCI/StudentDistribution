@@ -1,0 +1,45 @@
+﻿@model DepartmentManagment
+@{
+    ViewData["Title"] = "Department";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>Department Manage</h1>
+    </div>
+</section>
+<br />
+<section class="text-center" >
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped Dep-table col-lg-6">
+                <tr>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                </tr>
+                @foreach (Department i in Model.departments)
+                {
+                    <tr>
+                        <td>@i.Did</td>
+                        <td>@i.Dname</td>
+                    </tr>
+                }
+            </table>
+                <div class=" col-lg-6">
+                    <button class="btn btn-primary">Add new Department</button>
+                    <form asp-action="Department" method="post">
+                        <br />
+                        <h4>Department Name</h4>
+
+                        <input asp-for="Name" class="form-control" type="text" id="input" />
+                        <div asp-validation-summary="All" id="val"></div>
+                        <button class="btn btn-success">Add</button>
+                    </form>
+                </div>
+        </div>.
+    </div>
+</section>
+<section class="text-center">
+    
+</section>
+

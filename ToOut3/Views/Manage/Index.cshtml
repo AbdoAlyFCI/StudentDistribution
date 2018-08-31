@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Manage";
+}
+
+<section class="grating text-center">
+    <div class="container">
+        <h1>- Manage Students Data -</h1>
+    </div>
+</section>
+
+<section class="Setting text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-12 Config">
+                <a asp-action="Upload">
+                    <i class="fas fa-upload"></i>
+                    <h2>Upload</h2>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-12 Config">
+                <a asp-action="ManualRegister" >
+                    <i class="fas fa-file-signature"></i>
+                    <h2>Manual</h2>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-12 Config">
+                <a asp-action="view" >
+                    <i class="far fa-eye"></i>
+                    <h2>View</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
