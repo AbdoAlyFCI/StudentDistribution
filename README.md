@@ -1,1 +1,1 @@
-# Departments distibution 
+# Departments distribution 
