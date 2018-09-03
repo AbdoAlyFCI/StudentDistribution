@@ -23,9 +23,9 @@ with no previous experience i found that was not bad and I found that i learned 
 
 
 
-some image from paper documentation that i use [here](https://drive.google.com/drive/folders/1XA95by1hhd5fKxgDG0OrThNUzZbulOKl?usp=sharing)
+some images from paper documentation that i use [here](https://drive.google.com/drive/folders/1XA95by1hhd5fKxgDG0OrThNUzZbulOKl?usp=sharing)
 
-some image form the website when it work [here](https://drive.google.com/drive/folders/1L_X8y0rGG-CpxjZN3ChFeT7AQ0FaxNN0?usp=sharing)
+some images form the website when it work [here](https://drive.google.com/drive/folders/1L_X8y0rGG-CpxjZN3ChFeT7AQ0FaxNN0?usp=sharing)
 
 
 
